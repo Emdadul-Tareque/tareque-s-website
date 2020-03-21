@@ -1,10 +1,9 @@
-from django.http import HttpRequest, HttpResponse
+from django.http import HttpRequest
 from django.shortcuts import render
-# from blog_app.write_blog import write
-from blog_app.models import Blog
+from blog_app.models import Blog, Category
 
 
-def index(request: HttpRequest):
+def index(request):
     blog = Blog.objects.all()
     context = {
         'blog': blog
@@ -28,9 +27,10 @@ def all_blog(request: HttpRequest):
     if 'category' in request.GET:
         category = int(request.GET.get('category'))
         blog = blog.filter(category=category)
-
+    category = Category.objects.all()
     context = {
-        'blog': blog.order_by('-created_at')
+        'blog': blog.order_by('-created_at'),
+        'category': category
     }
 
     return render(request, 'all_blog.html', context)

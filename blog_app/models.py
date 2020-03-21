@@ -8,6 +8,7 @@ class Blog(models.Model):
     category = models.ForeignKey('blog_app.Category',
                                  blank=True, null=True,
                                  on_delete=models.CASCADE,
+                                 related_name='post'
                                  )
 
     def __str__(self):

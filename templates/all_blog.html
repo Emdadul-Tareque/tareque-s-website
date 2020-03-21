@@ -7,9 +7,11 @@
                 <div class="side">
                     <div align="center" style="height:250px; "></div>
                     <h1 align="center" style="color: black">তারেকের নোটবুক</h1>
-                    <a href="{% url 'index' %}"><h4 align="center">Home</h4></a>
-                    <a href="{% url 'all_blog' %}"><h4 align="center">Blog</h4></a>
                     <h4 align="center">Portfolio</h4>
+                    <h4 align="center">Blog Category</h4>
+                    {% for category in category %}
+                        <p align="center"><b>{{ category.name }}</b></p>
+                    {% endfor %}
                 </div>
 
                 <div class="main">
