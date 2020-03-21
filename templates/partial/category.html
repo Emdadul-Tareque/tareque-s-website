@@ -1,0 +1,4 @@
+{% if post.category %}
+                <b>Category: </b><a href="blog/?category={{ post.category.id }}">
+                    <b>{{ post.category }}</b></a>
+            {% endif %}

@@ -1,0 +1,25 @@
+{% extends 'master.html' %}
+
+{% block content %}
+    <div class="header">
+        <h1>তারেকের নোটবুক </h1>
+        <p>বাংলায় লেখালেখি </p>
+    </div>
+    <div class="navbar">
+        <a href="{% url 'index' %}">Home</a>
+        <a href="{% url 'all_blog' %}">Blog</a>
+    </div>
+    <div class="row">
+        <div class="main">
+            <div class="sub">
+                <h2>{{ post.title }}</h2><br>
+                {% include 'partial/category.html' %}
+                <h6 class="datetime">{{ post.created_at }}</h6>
+                <p>{{ post.body }}</p>
+                <br>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
